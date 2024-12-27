@@ -619,7 +619,7 @@ img{
   position: relative;
   overflow: hidden;
   border-radius: .5rem;
-  height:17.5rem;
+  height:10rem;
 }
 
 .works__data{
@@ -870,4 +870,10 @@ img{
     grid-template-columns: repeat(3,1frz);
   }
   
+  .works__img{
+    position: relative;
+    overflow: hidden;
+    border-radius: .5rem;
+    height:11.7rem;
+  }
 }

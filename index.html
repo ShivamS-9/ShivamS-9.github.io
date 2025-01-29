@@ -617,16 +617,17 @@
             <h2 class="section-title">Get in touch</h2>
 
             <div class="contact__container bd-grid">
-                <form action="" class="contact__form">
+                <form id="contact-form" class="contact__form">
                     <div class="contact__inputs">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-
+                        <input type="text" name="name" placeholder="Name" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Email" class="contact__input" required>
                     </div>
-                    <input type="text" placeholder="Projects" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" placeholder="Message" class="contact__input"></textarea>
+                    <input type="text" name="projects" placeholder="Projects" class="contact__input">
+                    <textarea name="message" cols="0" rows="10" placeholder="Message" class="contact__input" required></textarea>
                     <input type="submit" value="Send Message" class="button contact__button">
+                    <p id="form-status"  class="success-message" style="display: none; color: green;">Message sent successfully!</p>
                 </form>
+                
 
                 <div>
                     <div class="contact__info">

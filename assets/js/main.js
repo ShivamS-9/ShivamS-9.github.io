@@ -49,3 +49,39 @@ function scrollActive() {
         }
     });
 }
+
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevents page reload
+
+    let form = event.target;
+    let formData = new FormData(form);
+
+    try {
+        let response = await fetch("https://getform.io/f/bdrredvb", {
+            method: "POST",
+            body: formData
+        });
+
+        const formStatus = document.getElementById("form-status");
+
+        if (response.ok) {
+            // Show success message with a smooth fade-in effect
+            formStatus.style.display = "block";
+            formStatus.style.opacity = 1;
+
+            // Hide the success message after 3 seconds with a smooth fade-out effect
+            setTimeout(() => {
+                formStatus.style.opacity = 0;
+                setTimeout(() => {
+                    formStatus.style.display = "none";
+                }, 500); // Wait for fade-out transition to complete
+            }, 3000); // 3 seconds
+
+            form.reset(); // Clear form
+        } else {
+            alert("There was an error submitting the form.");
+        }
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    }
+});

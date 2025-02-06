@@ -247,6 +247,10 @@ img{
   margin-bottom: var(--mb-5);
 }
 
+.home__profession a:hover{
+  color: var(--first-color);
+}
+
 .home__social{
   margin-bottom: 5rem;
 }

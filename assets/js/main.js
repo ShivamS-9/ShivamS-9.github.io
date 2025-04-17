@@ -57,7 +57,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     let formData = new FormData(form);
 
     try {
-        let response = await fetch("https://getform.io/f/bdrredvb", {
+        let response = await fetch("https://ge  tform.io/f/bdrredvb", {
             method: "POST",
             body: formData
         });
@@ -85,17 +85,3 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         alert("Something went wrong. Please try again.");
     }
 });
-
-
-/*===== GOOGLE ANALYTICS INTEGRATION =====*/
-(function() {
-    let gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-3MTTJ50GCS";
-    document.head.appendChild(gaScript);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual Google Analytics Measurement ID
-})();

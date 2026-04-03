@@ -1,87 +1,129 @@
-// const { Cursor } = require("mongoose")
+/* ===== MOBILE NAV ===== */
+const navToggle  = document.getElementById('navToggle');
+const navClose   = document.getElementById('navClose');
+const mobileNav  = document.getElementById('mobileNav');
+const navOverlay = document.getElementById('navOverlay');
 
-/*===== MENU SHOW Y HIDDEN =====*/
-const navMenu = document.getElementById('nav-menu'),
-    toggleMenu = document.getElementById('nav-toggle'),
-    closeMenu = document.getElementById('nav-close');
-
-// SHOW MENU
-if (toggleMenu) {
-    toggleMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
+function openNav() {
+    mobileNav.classList.add('open');
+    navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeNav() {
+    mobileNav.classList.remove('open');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
-// HIDE MENU
-if (closeMenu) {
-    closeMenu.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-    });
-}
+if (navToggle)  navToggle.addEventListener('click', openNav);
+if (navClose)   navClose.addEventListener('click', closeNav);
+if (navOverlay) navOverlay.addEventListener('click', closeNav);
 
-// REMOVE MENU ON LINK CLICK
-const navLink = document.querySelectorAll('.nav__link');
-
-function linkAction() {
-    navMenu.classList.remove('show');
-}
-navLink.forEach(n => n.addEventListener('click', linkAction));
-
-// SCROLL SECTIONS ACTIVE LINK
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', scrollActive);
-
-function scrollActive() {
-    const scrollY = window.scrollY; // Use `scrollY` instead of `pageYOffset`
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id');
-
-        const navItem = document.querySelector('.nav__menu a[href*="' + sectionId + '"]');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navItem?.classList.add('active');
-        } else {
-            navItem?.classList.remove('active');
-        }
-    });
-}
-
-document.getElementById("contact-form").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevents page reload
-
-    let form = event.target;
-    let formData = new FormData(form);
-
-    try {
-        let response = await fetch("https://ge  tform.io/f/bdrredvb", {
-            method: "POST",
-            body: formData
-        });
-
-        const formStatus = document.getElementById("form-status");
-
-        if (response.ok) {
-            // Show success message with a smooth fade-in effect
-            formStatus.style.display = "block";
-            formStatus.style.opacity = 1;
-
-            // Hide the success message after 3 seconds with a smooth fade-out effect
-            setTimeout(() => {
-                formStatus.style.opacity = 0;
-                setTimeout(() => {
-                    formStatus.style.display = "none";
-                }, 500); // Wait for fade-out transition to complete
-            }, 3000); // 3 seconds
-
-            form.reset(); // Clear form
-        } else {
-            alert("There was an error submitting the form.");
-        }
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    }
+// Close on mobile nav link click
+document.querySelectorAll('.mobile-nav__link').forEach(link => {
+    link.addEventListener('click', closeNav);
 });
+
+/* ===== SCROLL PROGRESS BAR ===== */
+const progressBar = document.getElementById('scrollProgress');
+
+window.addEventListener('scroll', () => {
+    const scrollTop    = window.scrollY;
+    const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
+    const progress     = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (progressBar) progressBar.style.width = progress + '%';
+});
+
+/* ===== ACTIVE NAV LINK (sidebar) ===== */
+const sections    = document.querySelectorAll('section[id]');
+const sidebarLinks = document.querySelectorAll('.sidebar__link');
+
+function updateActiveLink() {
+    const scrollY = window.scrollY;
+    sections.forEach(section => {
+        const top    = section.offsetTop - 100;
+        const height = section.offsetHeight;
+        const id     = section.getAttribute('id');
+        const link   = document.querySelector(`.sidebar__link[href="#${id}"]`);
+        if (link) {
+            if (scrollY >= top && scrollY < top + height) {
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+        }
+    });
+}
+window.addEventListener('scroll', updateActiveLink);
+
+/* ===== SCROLL REVEAL ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal, .exp-card, .work-card, .info-card, .skills__group').forEach(el => {
+    revealObserver.observe(el);
+});
+
+/* ===== SKILL BARS (animate when in view) ===== */
+const skillBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.skill-item__bar').forEach(bar => {
+                const w = bar.getAttribute('data-width');
+                bar.style.width = w + '%';
+            });
+            skillBarObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.skills__group').forEach(group => {
+    skillBarObserver.observe(group);
+});
+
+/* ===== STAGGER REVEAL FOR GRIDS ===== */
+document.querySelectorAll('.exp__grid .exp-card, .works__grid .work-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.07) + 's';
+});
+
+/* ===== CONTACT FORM ===== */
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('[type="submit"]');
+        const status = document.getElementById('form-status');
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending…';
+
+        try {
+            const response = await fetch('https://getform.io/f/bdrredvb', {
+                method: 'POST',
+                body: new FormData(this)
+            });
+
+            if (response.ok) {
+                status.style.display = 'block';
+                status.style.opacity = '1';
+                this.reset();
+
+                setTimeout(() => {
+                    status.style.opacity = '0';
+                    setTimeout(() => { status.style.display = 'none'; }, 500);
+                }, 3500);
+            } else {
+                alert('There was an error submitting the form. Please try again.');
+            }
+        } catch {
+            alert('Something went wrong. Please try again.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="bx bx-send"></i> Send Message';
+        }
+    });
+}

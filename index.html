@@ -1,683 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <!-- ===== BOX ICONS ===== -->
-
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="assets/img/nav__logo.jpg">
-    <title>Shivam Singh Portfolio</title>
+    <title>Shivam Singh — Portfolio</title>
 </head>
-
 <body>
-    <!--===== HEADER =====-->
-    <header class="header-1">
-        <nav class="nav bd-grid">
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Grain texture -->
+    <div class="grain"></div>
+
+    <!--===== SIDEBAR NAV =====-->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <div class="sidebar__avatar">
+                <img src="assets/img/nav__logo.jpg" alt="Shivam Singh">
             </div>
+            <span class="sidebar__name">Shivam</span>
+        </div>
 
-            <div>
-                <a href="#" class="nav__logo">Shivam</a>
-            </div>
-            <div class="nav__menu" id="nav-menu">
-
-
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
-
-                <ul class="nav__list">
-                    <li class="nav__item"> <img src="assets/img/nav__logo.jpg" alt="" class="nav__img">
-                    <li class="nav__item"> <a href="#home" class="nav__link active">Home</a></li>
-                    <li class="nav__item"> <a href="#about" class="nav__link ">About</a></li>
-                    <li class="nav__item"> <a href="#skills" class="nav__link ">Skill Set</a></li>
-                    <li class="nav__item"> <a href="#education" class="nav__link ">Education</a></li>
-                    <li class="nav__item"> <a href="#services" class="nav__link ">Experiences</a></li>
-                    <li class="nav__item"> <a href="#works" class="nav__link ">Projects</a></li>
-                    <li class="nav__item"> <a href="#contact" class="nav__link ">Contact Me</a></li>
-
-                </ul>
-            </div>
+        <nav class="sidebar__nav">
+            <ul class="sidebar__list">
+                <li><a href="#home"      class="sidebar__link active"><span class="sidebar__num">01</span> Home</a></li>
+                <li><a href="#about"     class="sidebar__link"><span class="sidebar__num">02</span> About</a></li>
+                <li><a href="#skills"    class="sidebar__link"><span class="sidebar__num">03</span> Skills</a></li>
+                <li><a href="#education" class="sidebar__link"><span class="sidebar__num">04</span> Education</a></li>
+                <li><a href="#services"  class="sidebar__link"><span class="sidebar__num">05</span> Experience</a></li>
+                <li><a href="#works"     class="sidebar__link"><span class="sidebar__num">06</span> Projects</a></li>
+                <li><a href="#contact"   class="sidebar__link"><span class="sidebar__num">07</span> Contact</a></li>
+            </ul>
         </nav>
+
+        <div class="sidebar__footer">
+            <a href="https://www.linkedin.com/in/shivam-singh9204/" class="sidebar__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/ShivamS-9"                  class="sidebar__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+            <a href="https://medium.com/@shivamsingh922004"          class="sidebar__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-medium'></i></a>
+        </div>
+    </aside>
+
+    <!--===== MOBILE HEADER =====-->
+    <header class="mobile-header" id="mobileHeader">
+        <button class="mobile-header__toggle" id="navToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="#home" class="mobile-header__logo">Shivam</a>
+        <a href="https://drive.google.com/file/d/1zlub9EOLyYVj1EswvzJ7MXmYZ7ZPs6ej/view?usp=sharing"
+           class="mobile-header__cv" target="_blank" rel="noopener noreferrer">CV</a>
     </header>
-    <main class="main-1">
+
+    <!-- Mobile nav drawer -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav__close" id="navClose"><i class='bx bx-x'></i></button>
+        <ul class="mobile-nav__list">
+            <li><a href="#home"      class="mobile-nav__link"><span>01</span> Home</a></li>
+            <li><a href="#about"     class="mobile-nav__link"><span>02</span> About</a></li>
+            <li><a href="#skills"    class="mobile-nav__link"><span>03</span> Skills</a></li>
+            <li><a href="#education" class="mobile-nav__link"><span>04</span> Education</a></li>
+            <li><a href="#services"  class="mobile-nav__link"><span>05</span> Experience</a></li>
+            <li><a href="#works"     class="mobile-nav__link"><span>06</span> Projects</a></li>
+            <li><a href="#contact"   class="mobile-nav__link"><span>07</span> Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="main">
+
         <!--===== HOME =====-->
-        <section class="home" id="home">
-            <div class="home__container bd-grid">
-                <div class="home__data">
-                    <div class="home__img">
-                        <img src="assets/img/profile_img.jpg" alt="">
-                    </div>
+        <section class="home section" id="home">
+            <div class="home__inner">
+                <div class="home__eyebrow">
+                    <span class="home__dot"></span>
+                    Available for opportunities
+                </div>
 
-                    <h1 class="home__title"> Shivam Singh </h1>
-                    <span class="home__profession">Dual Degree Student @ <a href="https://www.iiit.ac.in/" target="_blank" class="home__profession">IIIT Hyderabad </a> <p>Undergraduate Researcher @
-                        <a href="https://dsac.iiit.ac.in/" target="_blank" class="home__profession"> DSAC, IIIT-H </a> </p>
-                        <p>Aspiring Software Engineer</p>
-                    </span>
+                <div class="home__photo">
+                    <img src="assets/img/profile_img.jpg" alt="Shivam Singh">
+                    <div class="home__photo-ring"></div>
+                </div>
 
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/shivam-singh9204/" class="home__social-link"
-                            target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                <h1 class="home__title">
+                    Shivam<br><em>Singh</em>
+                </h1>
 
-                        <a href="https://github.com/ShivamS-9" class="home__social-link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+                <p class="home__description">
+                    Dual Degree Student @&nbsp;
+                    <a href="https://www.iiit.ac.in/" target="_blank" rel="noopener noreferrer" class="home__link">IIIT Hyderabad</a>
+                    &nbsp;·&nbsp; Researcher @&nbsp;
+                    <a href="https://dsac.iiit.ac.in/" target="_blank" rel="noopener noreferrer" class="home__link">DSAC</a>
+                    &nbsp;·&nbsp; Aspiring SWE
+                </p>
 
-                        <a href="https://www.instagram.com/dragon.00.9" class="home__social-link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
+                <div class="home__tags">
+                    <span class="tag">HCI Research</span>
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Open Source</span>
+                </div>
 
-                        <a href="https://medium.com/@shivamsingh922004" class="home__social-link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bxl-medium'></i></a>
-                    </div>
+                <div class="home__actions">
+                    <a href="https://drive.google.com/file/d/1zlub9EOLyYVj1EswvzJ7MXmYZ7ZPs6ej/view?usp=sharing"
+                       class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                        <i class='bx bx-download'></i> Download CV
+                    </a>
+                    <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+                </div>
 
-                    <a download=""
-                        href="https://drive.google.com/file/d/1zlub9EOLyYVj1EswvzJ7MXmYZ7ZPs6ej/view?usp=sharing"
-                        class="button home__button" target="_blank" rel="noopener noreferrer">Download CV</a>
+                <div class="home__socials">
+                    <a href="https://www.linkedin.com/in/shivam-singh9204/" class="home__social-pill" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+                    <a href="https://github.com/ShivamS-9"                  class="home__social-pill" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i> GitHub</a>
+                    <a href="https://www.instagram.com/dragon.00.9"         class="home__social-pill" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'></i> Instagram</a>
+                    <a href="https://medium.com/@shivamsingh922004"          class="home__social-pill" target="_blank" rel="noopener noreferrer"><i class='bx bxl-medium'></i> Medium</a>
                 </div>
             </div>
+
+            <!-- Decorative elements -->
+            <div class="home__deco home__deco--1"></div>
+            <div class="home__deco home__deco--2"></div>
         </section>
+
         <!--===== ABOUT =====-->
         <section class="about section" id="about">
+            <div class="section__header">
+                <span class="section__num">02</span>
+                <h2 class="section__title">About Me</h2>
+            </div>
 
-            <span class="section-subtitle"></span>
-            <h2 class="section-title"> About me</h2>
-            <!-- <img src="assets/img/ppp2.jpg" alt="" class="about__img"> -->
-
-            <div class="about__container bd-grid">
-
-                <div class="about__data">
-                    <!-- <p class="about__description"> -->
-                    <p class="about__description">
-
-                        Hey! I'm Shivam Singh, a dual-degree student at IIIT Hyderabad, pursuing a B.Tech in Computer
-                        Science and an M.S. by Research in Computational Human Sciences. I’m deeply passionate about the
-                        intersection of technology and human behavior, with a particular focus on how innovations,
-                        especially in fitness and bodybuilding routines, shape our perceptions of well-being.
-                    </p>
-                    <p class="about__description">
-
-                        I am an enthusiast of full-stack development, machine learning, and human-computer interaction
-                        (HCI). With a strong foundation in various programming languages, frameworks, and technologies,
-                        I enjoy tackling complex problems, building solutions, and exploring the potential of technology
-                        to improve our lives. My academic journey blends my technical expertise with my interest in how
-                        technology can enhance human experiences.
-
-                    </p>
-                    <p class="about__description">
-
-                        Beyond academics, I have a deep love for sports, especially tennis and table tennis. These
-                        activities not only keep me physically active but also instill valuable lessons in focus,
-                        strategy, and teamwork.
-                    </p>
-                    <p class="about__description">
-
-                        I’m always looking to connect with like-minded individuals who are passionate about using
-                        technology for positive impact!
-                    </p>
-                    <!-- </p> -->
+            <div class="about__grid">
+                <div class="about__text">
+                    <p>Hey! I'm Shivam Singh — a dual-degree student at IIIT Hyderabad pursuing a B.Tech in Computer Science and an M.S. by Research in Computational Human Sciences.</p>
+                    <p>I'm deeply passionate about the intersection of technology and human behavior, with a particular focus on how innovations — especially in fitness and bodybuilding — shape perceptions of well-being. My HCI research lives at that exact crossroads.</p>
+                    <p>I'm an enthusiast of full-stack development, machine learning, and human-computer interaction. Beyond academics, I have a deep love for sports, especially tennis and table tennis — activities that instill focus, strategy, and teamwork.</p>
+                    <p>Always looking to connect with people who are passionate about using technology for positive impact.</p>
                 </div>
-                <div>
-                    <div class="about__information">
-                        <h3 class="about__information-title">Personal Info</h3>
 
-                        <div class="about__information-data">
-                            <i class='bx bx-user about__information-icon'></i>
+                <div class="about__sidebar">
+                    <div class="info-card">
+                        <h4 class="info-card__title">Personal Info</h4>
+                        <div class="info-card__row">
+                            <i class='bx bx-user'></i>
                             <span>Shivam Singh</span>
                         </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-phone about__information-icon'></i>
-                            <span>9479835840</span>
+                        <div class="info-card__row">
+                            <i class='bx bx-phone'></i>
+                            <span>+91-94798-35840</span>
                         </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-envelope about__information-icon'></i>
+                        <div class="info-card__row">
+                            <i class='bx bx-envelope'></i>
                             <span>shivam.singh.iiit@gmail.com</span>
                         </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-map about__information-icon'></i>
+                        <div class="info-card__row">
+                            <i class='bx bx-map'></i>
                             <span>Hyderabad, India</span>
                         </div>
-
-                    </div>
-                    <div class="about__information">
-                        <h3 class="about__information-title">Things I’m Enthusiastic About </h3>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-code-block about__information-icon'></i>
-                            <div>
-                                <span class="about__information-subtitle">Deep Learning</span>
-                                <span class="about__information-subtitle"> Full Stack Development<span>
-                            </div>
-                        </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-dumbbell about__information-icon'></i>
-                            <div>
-
-                                <span class="about__information-subtitle">Human Computer Interaction</span>
-
-                                <span class="about__information-subtitle">Fitness and Technology<span>
-
-                            </div>
-                        </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-briefcase about__information-icon'></i>
-                            <div>
-
-                                <span class="about__information-subtitle">Business and Entrepreneurship </span>
-
-                                <span class="about__information-subtitle">Leading from the front<span>
-
-                            </div>
-                        </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bx-coffee-togo about__information-icon'></i>
-                            <div>
-
-                                <span class="about__information-subtitle">Freshly brewed coffee</span>
-
-                                <span class="about__information-subtitle">Bitter, dark chocolates<span>
-
-                            </div>
-                        </div>
-
-                        <div class="about__information-data">
-                            <i class='bx bxs-heart about__information-icon'></i>
-                            <div>
-
-                                <span class="about__information-subtitle">Health and Fitness</span>
-
-                                <span class="about__information-subtitle">Tennis and Table Tennis<span>
-
-                            </div>
-                        </div>
                     </div>
 
+                    <div class="info-card">
+                        <h4 class="info-card__title">Interests</h4>
+                        <div class="info-card__row"><i class='bx bx-code-block'></i><span>Deep Learning &amp; Full-Stack Dev</span></div>
+                        <div class="info-card__row"><i class='bx bx-dumbbell'></i><span>HCI &amp; Fitness Technology</span></div>
+                        <div class="info-card__row"><i class='bx bx-briefcase'></i><span>Business &amp; Entrepreneurship</span></div>
+                        <div class="info-card__row"><i class='bx bx-coffee-togo'></i><span>Freshly brewed coffee</span></div>
+                        <div class="info-card__row"><i class='bx bxs-heart'></i><span>Tennis &amp; Table Tennis</span></div>
+                    </div>
                 </div>
-
-            </div>
-            <!-- <img src="assets/img/profile.jpg" alt="" class="about__img"> -->
             </div>
         </section>
+
         <!--===== SKILLS =====-->
         <section class="skills section" id="skills">
-            <span class="section-subtitle"></span>
-            <h2 class="section-title">Coding Skills</h2>
+            <div class="section__header">
+                <span class="section__num">03</span>
+                <h2 class="section__title">Skill Set</h2>
+            </div>
 
-            <div class="skills__container bd-grid">
-                <div class="skills__content">
-                    <h3 class="skills__subtitle">Programming Languages</h3>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Python</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__html"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Javascript</span>
-                        <span class="skills__number">75%</span>
-                        <span class="skills__bar skills__js"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">C/C++</span>
-                        <span class="skills__number">90%</span>
-                        <span class="skills__bar skills__html90"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Solidity</span>
-                        <span class="skills__number">75%</span>
-                        <span class="skills__bar skills__solidity"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">HTML/CSS</span>
-                        <span class="skills__number">90%</span>
-                        <span class="skills__bar skills__html90"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Bash</span>
-                        <span class="skills__number">70%</span>
-                        <span class="skills__bar skills__bash"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Assembly</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__assembly"></span>
-                    </div>
+            <div class="skills__grid">
+                <div class="skills__group">
+                    <h3 class="skills__group-title"><i class='bx bx-code-alt'></i> Languages</h3>
+                    <div class="skill-item"><span class="skill-item__name">Python</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">JavaScript</span><span class="skill-item__pct">75%</span><span class="skill-item__bar" data-width="75"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">C / C++</span><span class="skill-item__pct">90%</span><span class="skill-item__bar" data-width="90"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Solidity</span><span class="skill-item__pct">75%</span><span class="skill-item__bar" data-width="75"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">HTML / CSS</span><span class="skill-item__pct">90%</span><span class="skill-item__bar" data-width="90"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Bash</span><span class="skill-item__pct">70%</span><span class="skill-item__bar" data-width="70"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Assembly</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
                 </div>
 
-                <div class="skills__content">
-                    <h3 class="skills__subtitle">Frameworks & Libraries</h3>
-
-                    <div class="skills__data">
-                        <span class="skills__name">ReactJS</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__react"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">NodeJS</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__html"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">ExpressJS</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__html"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Angular</span>
-                        <span class="skills__number">70%</span>
-                        <span class="skills__bar skills__angular"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Pytorch/Tensorflow</span>
-                        <span class="skills__number">75%</span>
-                        <span class="skills__bar skills__tensorflow"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Numpy/Pandas</span>
-                        <span class="skills__number">95%</span>
-                        <span class="skills__bar skills__numpy"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Flask</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__react"></span>
-                    </div>
+                <div class="skills__group">
+                    <h3 class="skills__group-title"><i class='bx bx-layer'></i> Frameworks</h3>
+                    <div class="skill-item"><span class="skill-item__name">ReactJS</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">NodeJS</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">ExpressJS</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Angular</span><span class="skill-item__pct">70%</span><span class="skill-item__bar" data-width="70"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">PyTorch / TF</span><span class="skill-item__pct">75%</span><span class="skill-item__bar" data-width="75"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">NumPy / Pandas</span><span class="skill-item__pct">95%</span><span class="skill-item__bar" data-width="95"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Flask</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
                 </div>
 
-                <div class="skills__content">
-                    <h3 class="skills__subtitle">Technologies & Tools</h3>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Git/GitHub</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__react"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Docker</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__docker"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">AWS</span>
-                        <span class="skills__number">70%</span>
-                        <span class="skills__bar skills__aws"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">MySQL</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__react"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">MongoDB</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__mongodb"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">REST APIs</span>
-                        <span class="skills__number">75%</span>
-                        <span class="skills__bar skills__restapi"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Linux/UNIX</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__linux"></span>
-                    </div>
+                <div class="skills__group">
+                    <h3 class="skills__group-title"><i class='bx bx-wrench'></i> Tools & Tech</h3>
+                    <div class="skill-item"><span class="skill-item__name">Git / GitHub</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Docker</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">AWS</span><span class="skill-item__pct">70%</span><span class="skill-item__bar" data-width="70"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">MySQL</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">MongoDB</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">REST APIs</span><span class="skill-item__pct">75%</span><span class="skill-item__bar" data-width="75"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Linux / UNIX</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
                 </div>
 
-                <div class="skills__content">
-                    <h3 class="skills__subtitle">Specializations & Expertise</h3>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Full-Stack Web Development</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__fullstack"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Machine Learning and AI</span>
-                        <span class="skills__number">75%</span>
-                        <span class="skills__bar skills__ml"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Open Source Development</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__opensource"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Operating Systems & Networking</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__osnetworking"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Database Management</span>
-                        <span class="skills__number">95%</span>
-                        <span class="skills__bar skills__dbms"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Problem-Solving and Technical Writing</span>
-                        <span class="skills__number">85%</span>
-                        <span class="skills__bar skills__problemsolving"></span>
-                    </div>
-
-                    <div class="skills__data">
-                        <span class="skills__name">Human-Computer Interaction</span>
-                        <span class="skills__number">80%</span>
-                        <span class="skills__bar skills__hci"></span>
-                    </div>
+                <div class="skills__group">
+                    <h3 class="skills__group-title"><i class='bx bx-star'></i> Specializations</h3>
+                    <div class="skill-item"><span class="skill-item__name">Full-Stack Dev</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Machine Learning & AI</span><span class="skill-item__pct">75%</span><span class="skill-item__bar" data-width="75"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Open Source Dev</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">OS & Networking</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Database Management</span><span class="skill-item__pct">95%</span><span class="skill-item__bar" data-width="95"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">Problem Solving</span><span class="skill-item__pct">85%</span><span class="skill-item__bar" data-width="85"></span></div>
+                    <div class="skill-item"><span class="skill-item__name">HCI</span><span class="skill-item__pct">80%</span><span class="skill-item__bar" data-width="80"></span></div>
                 </div>
-
-
             </div>
         </section>
+
         <!--===== EDUCATION =====-->
         <section class="education section" id="education">
-            <span class="section-subtitle"></span>
-            <h2 class="section-title">My Education</h2>
-            <div class="education__container bd-grid">
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__year">IIIT Hyderabad</h3>
-                        <span class="education__university">2022-Present</span>
+            <div class="section__header">
+                <span class="section__num">04</span>
+                <h2 class="section__title">Education</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline__item reveal">
+                    <div class="timeline__left">
+                        <span class="timeline__year">2022 – Present</span>
+                        <span class="timeline__institution">IIIT Hyderabad</span>
                     </div>
-
-                    <div class="education__time">
-                        <span class="education__rounder"></span>
-                        <span class="education__line"></span>
+                    <div class="timeline__connector">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__line"></div>
                     </div>
-
-                    <div>
-                        <h3 class="education__race">B.Tech + MS (Dual Degree) </h3>
-                        <span class="education__specialty">B.Tech in Computer Science
-                        </span><span class="education__specialty">MS in Computing & Human Sciences </span>
-
+                    <div class="timeline__right">
+                        <h3 class="timeline__degree">B.Tech + MS Dual Degree</h3>
+                        <span class="timeline__field">B.Tech in Computer Science</span>
+                        <span class="timeline__field">MS in Computing &amp; Human Sciences</span>
                     </div>
                 </div>
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__year">Gwalior Glory High School </h3>
-                        <span class="education__university">2020-2021</span>
+
+                <div class="timeline__item reveal">
+                    <div class="timeline__left">
+                        <span class="timeline__year">2020 – 2021</span>
+                        <span class="timeline__institution">Gwalior Glory High School</span>
                     </div>
-                    <div class="education__time">
-                        <span class="education__rounder"></span>
-                        <span class="education__line"></span>
+                    <div class="timeline__connector">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__line"></div>
                     </div>
-
-                    <div>
-                        <h3 class="education__race">CBSE - 94.2%</h3>
-                        <span class="education__specialty">Completed my 12th with Physics, Chemistry & Maths.</span>
-
+                    <div class="timeline__right">
+                        <h3 class="timeline__degree">CBSE Class XII — 94.2%</h3>
+                        <span class="timeline__field">Physics, Chemistry &amp; Mathematics</span>
                     </div>
-
-
                 </div>
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__year">Gwalior Glory High School </h3>
-                        <span class="education__university">2018-2019</span>
+
+                <div class="timeline__item reveal">
+                    <div class="timeline__left">
+                        <span class="timeline__year">2018 – 2019</span>
+                        <span class="timeline__institution">Gwalior Glory High School</span>
                     </div>
-                    <div class="education__time">
-                        <span class="education__rounder"></span>
-                        <span class="education__line"></span>
+                    <div class="timeline__connector">
+                        <div class="timeline__dot"></div>
                     </div>
-
-                    <div>
-                        <h3 class="education__race">CBSE - 95.4%</h3>
-                        <span class="education__specialty">Completed my 10th with English, Sanskrit, Science, Maths,
-                            Social Science and ICT.</span>
-
+                    <div class="timeline__right">
+                        <h3 class="timeline__degree">CBSE Class X — 95.4%</h3>
+                        <span class="timeline__field">English, Sanskrit, Science, Maths, Social Science &amp; ICT</span>
                     </div>
-
-
                 </div>
+            </div>
         </section>
-        <!--===== SERVICES =====-->
+
+        <!--===== EXPERIENCE =====-->
         <section class="services section" id="services">
-            <span class="section-subtitle"> </span>
-            <h2 class="section-title">My Experiences</h2>
+            <div class="section__header">
+                <span class="section__num">05</span>
+                <h2 class="section__title">Experience</h2>
+            </div>
 
-            <div class="services__container bd-grid">
-
-                <div class="services__content">
-                    <i class='bx bxs-report services__icon'></i>
-                    <h3 class="services__title">Machine Learning Intern, The Gaming Hub</h3>
-                    <p class="services__description">Developed a scalable AI-powered analysis engine using Python, Langflow, and FastAPI to process 100+ startup pitch decks, optimizing prompt engineering to cut system latency by 40% and operational costs by 70%, while collaborating with cross-functional teams to deliver impactful, data-driven investment solutions.</p>
+            <div class="exp__grid">
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bxs-report'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">Machine Learning Intern</h3>
+                        <span class="exp-card__org">The Gaming Hub</span>
+                        <p class="exp-card__desc">Developed a scalable AI-powered analysis engine using Python, Langflow, and FastAPI to process 100+ startup pitch decks. Optimized prompt engineering to cut latency by 40% and operational costs by 70%, collaborating with cross-functional teams to deliver data-driven investment solutions.</p>
+                    </div>
                 </div>
 
-                <div class="services__content">
-                    <i class='bx bx-code services__icon'></i>
-                    <h3 class="services__title">SDE Intern, Arka Aerospace</h3>
-                    <p class="services__description">Designed and developed a comprehensive full-stack web application
-                        for efficient database management, incorporating
-                        secure user authentication, automation of routine tasks, and a responsive user interface,
-                        leveraging ReactJS for the
-                        frontend, ExpressJS and NodeJS for the backend, and MongoDB for database operations.
-                    </p>
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bx-code'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">Software Engineer Intern</h3>
+                        <span class="exp-card__org">Arka Aerospace</span>
+                        <p class="exp-card__desc">Designed and developed a comprehensive full-stack web application for efficient database management with secure authentication, task automation, and a responsive UI — ReactJS frontend, ExpressJS + NodeJS backend, MongoDB database.</p>
+                    </div>
                 </div>
 
-                <div class="services__content">
-                    <i class='bx bx-pen services__icon'></i>
-                    <h3 class="services__title">HCI Researcher</h3>
-                    <p class="services__description">Currently conducting research on how technology influences
-                        perceptions of well-being through fitness and bodybuilding routines. The focus is on
-                        Human-Computer Interaction (HCI), the cultural dynamics surrounding fitness, and the role of
-                        fitness technologies in shaping behaviors, goals, and self-image.</p>
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bx-pen'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">HCI Researcher</h3>
+                        <span class="exp-card__org">DSAC Lab, IIIT Hyderabad</span>
+                        <p class="exp-card__desc">Conducting research on how technology influences well-being through fitness and bodybuilding routines — focusing on HCI, cultural dynamics of fitness, and how fitness technologies shape behaviors, goals, and self-image. Paper accepted at ACM CHI 2026, Barcelona.</p>
+                    </div>
                 </div>
 
-                
-
-                <div class="services__content">
-                    <i class='bx bx-pencil services__icon'></i>
-                    <h3 class="services__title">Head of Events, E-Cell, IIIT Hyderabad</h3>
-                    <p class="services__description">Led E-Cell initiatives, including the Fail? event, coordinating
-                        exceptional speakers and engaging over 200 attendees. Organized Telangana’s largest student-run
-                        hackathon, Megathon, with 600+ participants, driving innovation and fostering a collaborative
-                        environment.</p>
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bx-pencil'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">Head of Events</h3>
+                        <span class="exp-card__org">E-Cell, IIIT Hyderabad</span>
+                        <p class="exp-card__desc">Led E-Cell initiatives including the "Fail?" speaker event, engaging 200+ attendees. Organized Telangana's largest student-run hackathon — Megathon — with 600+ participants, driving innovation and collaboration.</p>
+                    </div>
                 </div>
 
-                <div class="services__content">
-                    <i class='bx bxs-id-card services__icon'></i>
-                    <h3 class="services__title">Vice Coordinator, Alumni Cell, IIIT Hyderabad</h3>
-                    <p class="services__description">As Vice Coordinator of the Student Alumni Connect Cell, I played a
-                        key role in enhancing alumni engagement by organizing events and initiating programs that
-                        fostered a strong connection between alumni and current students. I worked on strengthening the
-                        alumni-student relationship through regular interactions, mentorship opportunities, and
-                        networking events.</p>
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bxs-id-card'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">Vice Coordinator</h3>
+                        <span class="exp-card__org">Alumni Cell, IIIT Hyderabad</span>
+                        <p class="exp-card__desc">Enhanced alumni engagement by organizing events and programs that fostered strong connections between alumni and current students through regular interactions, mentorship opportunities, and networking events.</p>
+                    </div>
                 </div>
 
-                <div class="services__content">
-                    <i class='bx bx-credit-card-front services__icon'></i>
-                    <h3 class="services__title">Corporate & Events Head, Sports Club</h3>
-                    <p class="services__description">Led efforts to establish partnerships, secure sponsorships, and
-                        manage relationships with various organizations, businesses, and sports-related companies. Also
-                        played an integral role in organizing and promoting events, handling logistics, and ensuring
-                        effective marketing strategies for tournaments and activities. </p>
+                <div class="exp-card reveal">
+                    <div class="exp-card__icon"><i class='bx bx-credit-card-front'></i></div>
+                    <div class="exp-card__body">
+                        <h3 class="exp-card__title">Corporate &amp; Events Head</h3>
+                        <span class="exp-card__org">Sports Club, IIIT Hyderabad</span>
+                        <p class="exp-card__desc">Established partnerships, secured sponsorships, and managed relationships with organizations and sports companies. Organized tournaments with effective marketing strategies and logistics management.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!--===== PROJECT IN MIND =====-->
 
-        <section class="project section">
-            <div class="project__container bd-grid">
-                <div class="project__data">
-                    <h2 class="section-title project__title">Have a Project in Mind?</h2>
-                    <p class="project__description">If you're working on an exciting project or have an idea to
-                        collaborate on, feel free to reach out. I’m always eager to explore new opportunities and
-                        contribute to innovative endeavors.</p>
-                    <a href="#contact" class="button button__light"> Let’s Talk Over Coffee :)</a>
+        <!--===== CTA BAND =====-->
+        <section class="cta section">
+            <div class="cta__inner">
+                <div class="cta__text">
+                    <h2 class="cta__title">Have a Project in Mind?</h2>
+                    <p class="cta__desc">If you're working on something exciting or want to collaborate, reach out. I'm always eager to explore new opportunities and innovative ideas.</p>
                 </div>
-                <img src="assets/img/coffee.png" alt="" class="project__img">
+                <a href="#contact" class="btn btn--light">Let's Talk Over Coffee ☕</a>
             </div>
         </section>
 
-        <!--===== WORKS =====-->
+        <!--===== PROJECTS =====-->
         <section class="works section" id="works">
-            <span class="section-subtitle"></span>
-            <h2 class="section-title">Recent Projects</h2>
+            <div class="section__header">
+                <span class="section__num">06</span>
+                <h2 class="section__title">Recent Projects</h2>
+            </div>
 
-            <div class="works__container bd-grid">
-                <div class="works__img">
-                    <img src="assets/img/shell.avif" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/Bash-Shell-implemented-in-C" class="works__link"
-                            target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">C Shell</span>
+            <div class="works__grid">
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/shell.avif" alt="C Shell">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/Bash-Shell-implemented-in-C" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">C Shell</h3>
+                        <p class="work-card__tags"><span>C</span><span>Systems</span><span>OS</span></p>
                     </div>
                 </div>
 
-                <div class="works__img">
-                    <img src="assets/img/discussify.jpg" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/Discussify" class="works__link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">Discussify</span>
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/discussify.jpg" alt="Discussify">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/Discussify" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">Discussify</h3>
+                        <p class="work-card__tags"><span>React</span><span>Node</span><span>MongoDB</span></p>
                     </div>
                 </div>
 
-                <div class="works__img">
-                    <img src="assets/img/nfs.avif" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/Distributed-Network-File-System-in-C" class="works__link"
-                            target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">Network File System</span>
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/nfs.avif" alt="Network File System">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/Distributed-Network-File-System-in-C" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">Network File System</h3>
+                        <p class="work-card__tags"><span>C</span><span>Distributed</span><span>Networking</span></p>
                     </div>
                 </div>
 
-                <div class="works__img">
-                    <img src="assets/img/editor.jpg" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/Drawing-editor-python" class="works__link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">Drawing Editor</span>
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/editor.jpg" alt="Drawing Editor">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/Drawing-editor-python" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">Drawing Editor</h3>
+                        <p class="work-card__tags"><span>Python</span><span>GUI</span></p>
                     </div>
                 </div>
 
-                <div class="works__img">
-                    <img src="assets/img/mern.avif" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/org-manager" class="works__link" target="_blank"
-                            rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">Organization Manager</span>
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/mern.avif" alt="Organization Manager">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/org-manager" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">Organization Manager</h3>
+                        <p class="work-card__tags"><span>MERN</span><span>Full-Stack</span></p>
                     </div>
                 </div>
 
-                <div class="works__img">
-                    <img src="assets/img/database.avif" alt="">
-
-                    <div class="works__data">
-                        <a href="https://github.com/ShivamS-9/World_War_II-Database-Manager" class="works__link"
-                            target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
-                        <span class="works__title">WW-II Database Manager</span>
+                <div class="work-card reveal">
+                    <div class="work-card__img">
+                        <img src="assets/img/database.avif" alt="WW-II Database Manager">
+                        <div class="work-card__overlay">
+                            <a href="https://github.com/ShivamS-9/World_War_II-Database-Manager" class="work-card__link" target="_blank" rel="noopener noreferrer"><i class='bx bx-link-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title">WW-II Database Manager</h3>
+                        <p class="work-card__tags"><span>SQL</span><span>Database</span></p>
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!--===== CONTACT =====-->
-
         <section class="contact section" id="contact">
-            <span class="section-subtitle"></span>
-            <h2 class="section-title">Get in touch</h2>
+            <div class="section__header">
+                <span class="section__num">07</span>
+                <h2 class="section__title">Get in Touch</h2>
+            </div>
 
-            <div class="contact__container bd-grid">
+            <div class="contact__grid">
                 <form id="contact-form" class="contact__form">
-                    <div class="contact__inputs">
-                        <input type="text" name="name" placeholder="Name" class="contact__input" required>
-                        <input type="email" name="email" placeholder="Email" class="contact__input" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
                     </div>
-                    <input type="text" name="projects" placeholder="Projects" class="contact__input">
-                    <textarea name="message" cols="0" rows="10" placeholder="Message" class="contact__input" required></textarea>
-                    <input type="submit" value="Send Message" class="button contact__button">
-                    <p id="form-status"  class="success-message" style="display: none; color: green;">Message sent successfully!</p>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="projects" class="form-input" placeholder="What's this about?">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="6" class="form-input" placeholder="Tell me about your project or idea..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">
+                        <i class='bx bx-send'></i> Send Message
+                    </button>
+                    <p id="form-status" class="form-status" style="display:none;">Message sent successfully!</p>
                 </form>
-                
 
-                <div>
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">Call Me<i class='bx bx-phone contact__icon'></i></h3>
-                        <span class="contact__text">+91-94798-35840</span>
-                        <span class="contact__text">+91-90982-15300</span>
+                <div class="contact__info">
+                    <div class="contact-detail">
+                        <div class="contact-detail__icon"><i class='bx bx-phone'></i></div>
+                        <div>
+                            <h4 class="contact-detail__label">Phone</h4>
+                            <span>+91-94798-35840</span>
+                            <span>+91-90982-15300</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail__icon"><i class='bx bx-envelope'></i></div>
+                        <div>
+                            <h4 class="contact-detail__label">Email</h4>
+                            <span>shivam.singh.iiit@gmail.com</span>
+                            <span>shivam.s@research.iiit.ac.in</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail__icon"><i class='bx bx-map'></i></div>
+                        <div>
+                            <h4 class="contact-detail__label">Location</h4>
+                            <span>IIIT Hyderabad</span>
+                            <span>Gachibowli, Hyderabad, India</span>
+                        </div>
                     </div>
 
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">Email <i class='bx bx-envelope contact__icon'></i></h3>
-                        <span class="contact__text">shivam.singh.iiit@gmail.com</span>
-                        <span class="contact__text">shivam.s@research.iiit.ac.in</span>
+                    <div class="contact__socials">
+                        <a href="https://www.linkedin.com/in/shivam-singh9204/" class="contact__social-btn" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://github.com/ShivamS-9"                  class="contact__social-btn" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.instagram.com/dragon.00.9"         class="contact__social-btn" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://medium.com/@shivamsingh922004"          class="contact__social-btn" target="_blank" rel="noopener noreferrer"><i class='bx bxl-medium'></i></a>
                     </div>
-
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">Location <i class='bx bx-map contact__icon'></i></h3>
-                        <span class="contact__text">IIIT Hyderabad</span>
-                        <span class="contact__text">Gachibowli, Hyderabad</span>
-                        <span class="contact__text">Telangana, India</span>
-                    </div>
-
                 </div>
             </div>
         </section>
     </main>
 
     <!--===== FOOTER =====-->
-    <footer class="footer section">
-        <div class="footer__container bd-grid">
-            <h1 class="footer__title">Shivam Singh</h1>
-            <p class="footer__description">Updated August 2025</p>
-
-            <div class="footer__social">
-                <a href="https://www.linkedin.com/in/shivam-singh9204/" class="footer__link" target="_blank"
-                    rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/ShivamS-9" class="footer__link" target="_blank" rel="noopener noreferrer"><i
-                        class='bx bxl-github'></i></a>
-                <a href="https://www.instagram.com/dragon.00.9" class="footer__link" target="_blank"
-                    rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
-                <a href="https://medium.com/@shivamsingh922004" class="footer__link" target="_blank"
-                    rel="noopener noreferrer"><i class='bx bxl-medium'></i></a>
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__left">
+                <span class="footer__name">Shivam Singh</span>
+                <span class="footer__copy">Updated August 2025 · All rights reserved</span>
             </div>
-            <p class="footer__copy">All rights reserved</p>
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/shivam-singh9204/" class="footer__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/ShivamS-9"                  class="footer__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+                <a href="https://www.instagram.com/dragon.00.9"         class="footer__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram'></i></a>
+                <a href="https://medium.com/@shivamsingh922004"          class="footer__social" target="_blank" rel="noopener noreferrer"><i class='bx bxl-medium'></i></a>
+            </div>
         </div>
     </footer>
 
-
-    <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>

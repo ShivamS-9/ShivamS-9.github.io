@@ -266,7 +266,11 @@ body {
     .abstract__layout { grid-template-columns: 240px 1fr; }
 }
 
-.abstract__sidebar { position: sticky; top: 2rem; align-self: start; }
+.abstract__sidebar { 
+    position: static; 
+    align-self: start; 
+    margin-bottom: 2rem; 
+}
 
 .abstract__pills {
     display: flex;
@@ -574,4 +578,16 @@ body {
     .hero__meta { gap: 1rem; }
     .meta-divider { display: none; }
     .footer__inner { justify-content: center; text-align: center; }
+}
+
+@media (min-width: 768px) {
+    .abstract__layout { 
+        grid-template-columns: 240px 1fr; 
+    }
+    
+    .abstract__sidebar { 
+        position: sticky; 
+        top: 2rem; 
+        margin-bottom: 0; /* Remove mobile margin */
+    }
 }

@@ -1,117 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CHI 2026 Poster – Shivam Singh</title>
-
-<link rel="stylesheet" href="../assets/css/styles.css">
-
-<style>
-
-body{
-max-width:900px;
-margin:auto;
-padding:40px;
-font-family: Arial, sans-serif;
-line-height:1.6;
-}
-
-h1{
-margin-bottom:10px;
-}
-
-.section{
-margin-top:35px;
-}
-
-.author{
-margin-bottom:15px;
-}
-
-.links a{
-display:block;
-margin-bottom:8px;
-font-weight:500;
-}
-
-</style>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="chi.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <title>Everyday HCI of Adaptive Fitness — CHI 2026</title>
 </head>
-
 <body>
 
-<h1>Training the Self: Fitness Tracking and Well-Being in Indian Gym Cultures</h1>
+    <div class="grain"></div>
 
-<p><strong>ACM CHI 2026 Poster</strong></p>
+    <a href="https://shivams-9.github.io/" class="home-btn" title="Back to Portfolio">
+        <i class='bx bx-arrow-back'></i>
+        <span>Portfolio</span>
+    </a>
 
-<div class="section">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero__badge">HCI Research · CHI 2026</div>
+        <div class="hero__venue">
+            <span class="venue-dot"></span>
+            Barcelona, Spain · 2026
+        </div>
 
-<h2>Authors</h2>
+        <h1 class="hero__title">
+            Everyday HCI of<br>
+            <em>Adaptive Fitness</em>
+        </h1>
+        <p class="hero__subtitle">
+            The Bricolage of Self-Tracking in Urban India
+        </p>
 
-<div class="author">
-<strong>Shivam Singh</strong><br>
-B.Tech CSE + MS Computational Human Sciences<br>
-IIIT Hyderabad<br>
-<a href="mailto:shivam.singh@iiit.ac.in">shivam.singh@iiit.ac.in</a><br>
-<a href="https://shivams-9.github.io">Website</a>
-</div>
+        <div class="hero__meta">
+            <div class="meta-item">
+                <span class="meta-label">Venue</span>
+                <span class="meta-value">ACM CHI 2026</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Barcelona, Spain</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-item">
+                <span class="meta-label">Institution</span>
+                <span class="meta-value">IIIT Hyderabad</span>
+            </div>
+        </div>
 
-<div class="author">
-<strong>Prof. Nimmi Rangaswamy</strong><br>
-IIIT Hyderabad
-</div>
+        <div class="hero__actions">
+            <a href="#abstract" class="btn btn--primary">Read Abstract</a>
+            <a href="#authors" class="btn btn--ghost">Meet the Authors</a>
+        </div>
 
-<div class="author">
-<strong>Author 3</strong><br>
-Affiliation
-</div>
+        <div class="hero__scroll-hint">
+            <span>Scroll to explore</span>
+            <i class='bx bx-chevron-down'></i>
+        </div>
+    </section>
 
-<div class="author">
-<strong>Author 4</strong><br>
-Affiliation
-</div>
+    <!-- Abstract -->
+    <section class="abstract section" id="abstract">
+        <div class="container">
+            <div class="section-label">01 — Abstract</div>
+            <div class="abstract__layout">
+                <div class="abstract__sidebar">
+                    <h2 class="section-heading">The Study</h2>
+                    <div class="abstract__pills">
+                        <span class="pill">HCI</span>
+                        <span class="pill">Self-Tracking</span>
+                        <span class="pill">Bricolage</span>
+                        <span class="pill">Urban India</span>
+                        <span class="pill">Qualitative</span>
+                        <span class="pill">Fitness Tech</span>
+                        <span class="pill">Well-Being</span>
+                        <span class="pill">Domestication</span>
+                    </div>
+                    <div class="abstract__stat">
+                        <div class="stat-number">CHI '26</div>
+                        <div class="stat-label">ACM CHI · Barcelona, Spain</div>
+                    </div>
+                </div>
+                <div class="abstract__body">
+                    <p class="abstract__text drop-cap">
+                        Digital fitness technologies promise greater awareness, structured routines, and enhanced discipline, influencing how individuals construct notions of well-being and engage in fitness within social environments.
+                    </p>
+                    <p class="abstract__text">
+                        In urban India, these dynamics are shaped by infrastructural constraints, uneven access to fitness resources, and context-specific conditions that complicate standardized tracking models built by global platforms. Drawing on prior literature studies and qualitative fieldwork, we examine how young fitness practitioners adopt and negotiate the use of self-tracking technologies.
+                    </p>
+                    <p class="abstract__text">
+                        Using <em>bricolage</em> as an analytical lens, we suggest how users creatively repurpose tools, navigating data-driven guidance and embodied intuition. Our findings show three key themes: <strong>creation of hybrid self-tracking ecologies</strong>, <strong>technology domestication via selective appropriation</strong>, and <strong>adaptation of fitness tracking to local socio-material contexts</strong>.
+                    </p>
+                    <p class="abstract__text">
+                        Fitness emerges as a situated and relational practice shaped by resource constraints and interpretive self-tracking.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Paper Details -->
+    <section class="details section" id="details">
+        <div class="container">
+            <div class="section-label">02 — Paper Details</div>
+            <h2 class="section-heading">Publication Info</h2>
+            <div class="details__grid">
+                <div class="detail-card">
+                    <i class='bx bx-book-open detail-card__icon'></i>
+                    <div class="detail-card__title">Conference</div>
+                    <div class="detail-card__value">ACM CHI Conference on Human Factors in Computing Systems 2026</div>
+                </div>
+                <div class="detail-card">
+                    <i class='bx bx-map-pin detail-card__icon'></i>
+                    <div class="detail-card__title">Location</div>
+                    <div class="detail-card__value">Barcelona, Spain · 2026</div>
+                </div>
+                <div class="detail-card">
+                    <i class='bx bx-category detail-card__icon'></i>
+                    <div class="detail-card__title">Track</div>
+                    <div class="detail-card__value">Human–Computer Interaction<br>Computational Human Sciences</div>
+                </div>
+                <div class="detail-card">
+                    <i class='bx bx-institution detail-card__icon'></i>
+                    <div class="detail-card__title">Institution</div>
+                    <div class="detail-card__value">International Institute of Information Technology, Hyderabad (IIIT-H)</div>
+                </div>
+                <div class="detail-card">
+                    <i class='bx bx-search-alt detail-card__icon'></i>
+                    <div class="detail-card__title">Research Lab</div>
+                    <div class="detail-card__value">DSAC — Data Science &amp; Analytics Center, IIIT Hyderabad</div>
+                </div>
+                <div class="detail-card">
+                    <i class='bx bx-tag detail-card__icon'></i>
+                    <div class="detail-card__title">Keywords</div>
+                    <div class="detail-card__value">Self-tracking · Bricolage · HCI · Urban India · Fitness technology · Domestication · Well-being</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="section">
+    <!-- Authors -->
+    <section class="authors section" id="authors">
+        <div class="container">
+            <div class="section-label">03 — Authors</div>
+            <h2 class="section-heading">The Team</h2>
 
-<h2>About the Research</h2>
+            <!-- Row 1: Shivam · Raagav · Chetan -->
+            <div class="authors__row authors__row--three">
 
-<p>
-This ethnographic study explores how young adults in Indian gym cultures use
-fitness tracking technologies to interpret well-being and shape bodily
-discipline. Rather than continuous optimization, tracking practices emerge as
-intermittent, socially mediated, and negotiated within local gym environments.
-</p>
+                <div class="author-card">
+                    <div class="pi-label">Principal Investigator</div>
+                    <div class="author-card__number">01</div>
+                    <div class="author-card__avatar"><span>SS</span></div>
+                    <div class="author-card__body">
+                        <h3 class="author-card__name">Shivam Singh</h3>
+                        <p class="author-card__role">B.Tech + MS (Dual Degree)</p>
+                        <p class="author-card__affiliation"><i class='bx bx-buildings'></i>KCIS · IIIT Hyderabad </p>
+                        <div class="author-card__contact">
+                            <a href="mailto:shivam.s@research.iiit.ac.in" class="contact-chip">
+                                <i class='bx bx-envelope'></i>
+                                <span>shivam.s@research.iiit.ac.in</span>
+                            </a>
+                            <div class="author-card__social">
+                                <a href="https://www.linkedin.com/in/shivam-singh9204/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.instagram.com/dragon.00.9" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                                <a href="https://shivams-9.github.io/" target="_blank" rel="noopener noreferrer" class="social-btn website" title="Portfolio"><i class='bx bx-globe'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</div>
+                <div class="author-card">
+                    <div class="author-card__number">02</div>
+                    <div class="author-card__avatar"><span>RR</span></div>
+                    <div class="author-card__body">
+                        <h3 class="author-card__name">Raagav Ramakrishnan</h3>
+                        <p class="author-card__role">B.Tech (ECE)</p>
+                        <p class="author-card__affiliation"><i class='bx bx-buildings'></i>KCIS · IIIT Hyderabad </p>
+                        <div class="author-card__contact">
+                            <a href="mailto:raagav.ramakrishnan@students.iiit.ac.in" class="contact-chip">
+                                <i class='bx bx-envelope'></i>
+                                <span>raagav.ramakrishnan@students.iiit.ac.in</span>
+                            </a>
+                            <div class="author-card__social">
+                                <a href="https://www.linkedin.com/in/raagav-ramakrishnan-3905511b2/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.instagram.com/raagavramki" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<div class="section links">
+                <div class="author-card">
+                    <div class="author-card__number">03</div>
+                    <div class="author-card__avatar"><span>CM</span></div>
+                    <div class="author-card__body">
+                        <h3 class="author-card__name">Chetan Mahipal</h3>
+                        <p class="author-card__role">B.Tech (CSE)</p>
+                        <p class="author-card__affiliation"><i class='bx bx-buildings'></i>KCIS · IIIT Hyderabad </p>
+                        <div class="author-card__contact">
+                            <a href="mailto:chetan.mahipal@students.iiit.ac.in" class="contact-chip">
+                                <i class='bx bx-envelope'></i>
+                                <span>chetan.mahipal@students.iiit.ac.in</span>
+                            </a>
+                            <div class="author-card__social">
+                                <a href="https://www.linkedin.com/in/chetan-mahipal-774780253/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.instagram.com/_chetan_2112" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<h2>Resources</h2>
+            </div><!-- /row 1 -->
 
-<a href="#">Full Paper (ACM Digital Library)</a>
-<a href="#">Poster PDF</a>
-<a href="#">Project Website</a>
+            <!-- Row 2: Nimmi Rangaswamy — PI, centered -->
+            <div class="authors__row authors__row--pi">
 
-</div>
+                <div class="author-card author-card--highlight">
+                    <div class="author-card__number">04</div>
+                    <div class="author-card__avatar"><span>NR</span></div>
+                    <div class="author-card__body">
+                        <h3 class="author-card__name">Nimmi Rangaswamy</h3>
+                        <p class="author-card__role">Professor &amp; Principal Investigator</p>
+                        <p class="author-card__affiliation"><i class='bx bx-buildings'></i>KCIS · IIIT Hyderabad </p>
+                        <div class="author-card__contact">
+                            <a href="mailto:nimmi.rangaswamy@iiit.ac.in" class="contact-chip">
+                                <i class='bx bx-envelope'></i>
+                                <span>nimmi.rangaswamy@iiit.ac.in</span>
+                            </a>
+                            <div class="author-card__social">
+                                <a href="https://www.linkedin.com/in/nimmi-rangaswamy-4936526/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.instagram.com/nimmirangaswamy" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<div class="section">
+            </div><!-- /row 2 -->
 
-<h2>Contact</h2>
+            <!-- Affiliation Banner -->
+            <div class="affiliation-banner">
+                <div class="affiliation-banner__inner">
+                    <div class="affiliation-logo"><i class='bx bx-buildings'></i></div>
+                    <div>
+                        <div class="affiliation-name">International Institute of Information Technology, Hyderabad</div>
+                        <div class="affiliation-sub">Data Science &amp; Analytics Center (DSAC) · Gachibowli, Hyderabad, India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>
-For research discussions or collaboration feel free to reach out.
-</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <div class="footer__title">Everyday HCI of Adaptive Fitness</div>
+                <div class="footer__sub">ACM CHI 2026 · Barcelona, Spain · IIIT Hyderabad</div>
+            </div>
+            <div class="footer__center">
+                <a href="https://shivams-9.github.io/" class="footer__home-link" target="_blank" rel="noopener noreferrer">
+                    <i class='bx bx-home'></i> Shivam's Portfolio
+                </a>
+            </div>
+            <div class="footer__right">
+                <span class="footer__copy">© 2026 All rights reserved</span>
+            </div>
+        </div>
+    </footer>
 
-<p>
-<strong>Email:</strong> shivam.singh@iiit.ac.in
-</p>
-
-</div>
-
+    <script src="main.js"></script>
 </body>
 </html>
